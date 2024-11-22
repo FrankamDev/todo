@@ -2,6 +2,7 @@
   background: $violet2;
   margin: 20% auto;
   width: 80%;
+  padding: 22px 0;
 
   .container {
     @include childCenter;
@@ -18,9 +19,10 @@
       button {
         background: $violet;
         color: $white;
-        width: 40%;
-        padding: 6px 2px;
+        width: 20%;
+        padding: 10px 0px;
         cursor: pointer;
+
       }
     }
 
@@ -30,6 +32,41 @@
       color: $white;
       font-family: sans-serif;
       font-size: 2rem;
+    }
+  }
+
+  .lisTasks {
+    margin: 100px 72px;
+    transform: .4s ease;
+
+    button {
+        color: rgb(49, 48, 48);
+      font-size: 1.1rem;
+      margin: 0 12px;
+  
+      &:hover {
+        cursor: pointer;
+        padding: 3px 5px;
+        border-radius: 50%;
+      }
+    }
+
+    ul {
+      width: 100%;
+
+      li {
+
+        background: $violet;
+        margin: 12px 0;
+        padding: 12px 0;
+
+        b {
+
+          padding: 0 12px;
+          color: $white;
+          font-weight: 700;
+        }
+      }
     }
   }
 }
