@@ -1,6 +1,12 @@
 import { useState } from 'react';
+import CardTask from './CardTask';
 
 const Tasks = () => {
+  const [err1, setErr1] = useState(false);
+  const [err2, setErr2] = useState(false);
+  const [message1, setmessage1] = useState('');
+  const [message2, setmessage2] = useState('');
+
   const [taskInput, setTaskInput] = useState('');
   const [tasks, settasks] = useState([
     { id: 1, task: 'go to the market' },
@@ -11,10 +17,21 @@ const Tasks = () => {
   };
   const handleClick = () => {
     if (taskInput.trim() === '') {
-      console.log('vide');
+      setErr1(true);
+      setmessage1('La tache ne doit pas etre vide!');
+      setTimeout(() => {
+        setmessage1('');
+      }, 2600);
     } else if (taskInput.length <= 3) {
-      console.log('la tache doit avoir plus de 3 et plus');
+      setErr2(true);
+      setTimeout(() => {
+        setmessage2('');
+      }, 2600);
+      setmessage2('la tache doit avoir plus de 3 et plus');
     } else {
+      setErr1(false);
+      setErr2(false);
+
       const taskCopy = [...tasks];
       const newArr = {
         id: tasks.length + 1,
@@ -26,9 +43,9 @@ const Tasks = () => {
     }
   };
   const handleEdit = (id) => {
-    const updatedTask = prompt('Edit your task: ');
+    const updatedTask = prompt('Editez la tache: ');
     if (updatedTask && updatedTask.trim() !== '') {
-      setTasks(
+      settasks(
         tasks.map((task) =>
           task.id === id ? { ...task, task: updatedTask } : task,
         ),
@@ -36,15 +53,18 @@ const Tasks = () => {
     }
   };
   const handleDelete = (id) => {
-    confirm("Voulez-vous vraiment aupprimer cette tache ?");
+    confirm('Voulez-vous vraiment aupprimer cette tache ?');
     const taskCopy = [...tasks];
     const deleteTask = taskCopy.filter((task) => task.id != id);
     settasks(deleteTask);
   };
+  const handleValided = (id) => {
+    console.log(id);
+  };
   return (
     <div className="tasks">
       <div className="container">
-        <h2>Get Things Done</h2>
+        <h2>Gestion des taches !!</h2>
         <div className="addTasks">
           <input
             type="text"
@@ -52,22 +72,25 @@ const Tasks = () => {
             onChange={handleChange}
             placeholder="Veuillez entrer votre tache"
           />
-          <button onClick={() => handleClick()}>Add Task</button>
+          <button onClick={() => handleClick()}>Ajouter</button>
+        </div>
+        <div className="errr">
+          <h3> {taskInput} </h3>
         </div>
       </div>
       <div className="lisTasks">
+        {err1 && <p className={err1 ? 'err11' : 'err1'}>{message1}</p>}
+        {err2 && <p className={err1 ? 'err11' : 'err1'}>{message2}</p>}
         <ul>
           {tasks.map((task, index) => (
-            <li key={index}>
-              {' '}
-              <b>{task.task}</b>
-              <button onClick={() => handleEdit(task.id)}>
-                <i className="fas fa-edit"></i>
-              </button>
-              <button onClick={() => handleDelete(task.id)}>
-                <i className="fas fa-trash"></i>
-              </button>
-            </li>
+            <CardTask
+              key={index}
+              handleClick={handleClick}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+              handleValided={handleValided}
+              task={task}
+            />
           ))}
         </ul>
       </div>

@@ -4,11 +4,11 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   transition: .4s ease;
+  overflow-x: hidden;
 }
 
 li {
   list-style: none;
-  
 }
 
 a {
@@ -16,8 +16,10 @@ a {
 }
 
 $white: #ffffffd9;
-
+$cyan: rgb(24, 154, 154);
+$black: black;
 $violet: slateblue;
+$violetFiltre: rgb(86, 74, 167);
 $violet2: rgb(41, 36, 71);
 
 @mixin childCenter {
@@ -37,7 +39,7 @@ input {
 
   &:focus {
     background: $violet2;
-    border: 1px solid red;
+    border: 1px solid $violet2;
   }
 
   &::placeholder {
@@ -49,3 +51,8 @@ body {
   height: 100vh;
   background: $violet;
 }
+
+button {
+  border: none;
+}
+
