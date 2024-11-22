@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+$white: #ffffffd9;
+
+$violet: slateblue;
+$violet2: rgb(41, 36, 71);
+@mixin childCenter {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+  border: 1px solid $violet;
+  background: $violet2;
+  width: 80%;
+  &::placeholder{
+    color: #ffffff71;
+  }
+}
+body {
+  height: 100vh;
+  background: $violet;
+}
