@@ -1,14 +1,19 @@
+*{
+  // border: 1px solid red
+}
 .app {
 
-    .footer {
-      @include childCenter;
-      color: $cyan;
-      font-size: 2rem;
-      font-weight: 800;
-    }
-  i{
+  .footer {
+    @include childCenter;
+    color: $cyan;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  i {
     color: $cyan;
   }
+
   .tasks {
     background: $violet2;
     margin: 20% auto;
@@ -17,7 +22,6 @@
 
     .container {
       @include childCenter;
-
       .errr {
         width: 78.6%;
 
@@ -67,13 +71,10 @@
       transform: .4s ease;
 
       .btns {
+        padding: 6px 0;
         display: flex;
-        width: 170%;
-        margin-left: 50%;
-        text-align: center;
         align-items: center;
-        justify-content: space-around;
-        padding: 0 12px 0 0;
+        justify-content: center;
 
         button {
           color: rgb(49, 48, 48);
@@ -81,8 +82,12 @@
           border: none;
           font-size: 1.2rem;
           width: 100%;
+          padding: 8px 0;
+          margin: 3px;
           transition: .4s ease;
-          position: static;
+          justify-content: center;
+          display: flex;
+          align-items: center;
 
           &:hover {
             cursor: pointer;
@@ -123,7 +128,7 @@
           margin: 12px 0;
           padding: 12px 0;
           display: grid;
-          grid-template-columns: 60% 20%;
+          grid-template-columns: 60% 40%;
           align-items: center;
 
           &:hover {

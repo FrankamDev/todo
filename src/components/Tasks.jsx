@@ -59,7 +59,7 @@ const Tasks = () => {
     settasks(deleteTask);
   };
   const handleValided = (id) => {
-    console.log(id);
+    
   };
   return (
     <div className="tasks">
