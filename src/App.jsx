@@ -4,8 +4,11 @@ import Tasks from './components/Tasks';
 const App = () => {
   return (
     <>
+
       <div className="app">
+
         <BrowserRouter>
+
           <Routes>
 
             <Route path="/" element={<Tasks />} />
